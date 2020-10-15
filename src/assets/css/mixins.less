@@ -1,0 +1,27 @@
+// 弹性盒子
+.flex(@justify-content: flex-start, @flex-direction: row , @flex-wrap: nowrap, @align-items: center) {
+    display: flex;
+    display: -webkit-flex;
+    justify-content: @justify-content;
+    -webkit-justify-content: @justify-content;
+    align-items: @align-items;
+    -webkit-align-items: @align-items;
+    flex-wrap: @flex-wrap;
+    -webkit-flex-wrap: @flex-wrap;
+    flex-direction: @flex-direction;
+    -webkit-flex-direction: @flex-direction;
+}
+// 单行溢出省略号
+.single-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+// 修正添加溢出省略组件后，固定列的计算后的错误高度
+.fix-td-height(@height) {
+    /deep/ .ant-table-fixed-right{
+        .ant-table-tbody > tr{
+            height: @height !important;
+        }
+    }
+}
